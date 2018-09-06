@@ -1,7 +1,7 @@
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class Quarterback extends Player {
-	public static final int RequiredInputCount = 9;
 	public int passAttempts;
 	public int passCompletions;
 	public int passingYards;
@@ -12,16 +12,20 @@ public class Quarterback extends Player {
 	public int fumbles;
 	public int sacks;
 
-	protected void LoadInternalData(List<String> data) {
-		passAttempts = Integer.parseInt(data.get(0));
-		passCompletions = Integer.parseInt(data.get(1));
-		passingYards = Integer.parseInt(data.get(2));
-		rushingAttempts = Integer.parseInt(data.get(3));
-		rushingYards = Integer.parseInt(data.get(4));
-		touchdowns = Integer.parseInt(data.get(5));
-		interceptions = Integer.parseInt(data.get(6));
-		fumbles = Integer.parseInt(data.get(7));
-		sacks = Integer.parseInt(data.get(8));
+	public Quarterback() {
+		super("Quarterback");
+	}
+
+	protected void LoadInternalData(BufferedReader reader) throws IOException {
+		passAttempts = Integer.parseInt(reader.readLine());
+		passCompletions = Integer.parseInt(reader.readLine());
+		passingYards = Integer.parseInt(reader.readLine());
+		rushingAttempts = Integer.parseInt(reader.readLine());
+		rushingYards = Integer.parseInt(reader.readLine());
+		touchdowns = Integer.parseInt(reader.readLine());
+		interceptions = Integer.parseInt(reader.readLine());
+		fumbles = Integer.parseInt(reader.readLine());
+		sacks = Integer.parseInt(reader.readLine());
 	}
 
 	@Override

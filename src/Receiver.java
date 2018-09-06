@@ -1,7 +1,7 @@
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class Receiver extends Player {
-	public static final int RequiredInputCount = 6;
 	public int receptions;
 	public int receptionYards;
 	public int rushes;
@@ -9,13 +9,17 @@ public class Receiver extends Player {
 	public int touchdowns;
 	public int fumbles;
 
-	protected void LoadInternalData(List<String> data) {
-		receptions = Integer.parseInt(data.get(0));
-		receptionYards = Integer.parseInt(data.get(1));
-		rushes = Integer.parseInt(data.get(2));
-		rushingYards = Integer.parseInt(data.get(3));
-		touchdowns = Integer.parseInt(data.get(4));
-		fumbles = Integer.parseInt(data.get(5));
+	public Receiver() {
+		super("Receiver");
+	}
+
+	protected void LoadInternalData(BufferedReader reader) throws IOException {
+		receptions = Integer.parseInt(reader.readLine());
+		receptionYards = Integer.parseInt(reader.readLine());
+		rushes = Integer.parseInt(reader.readLine());
+		rushingYards = Integer.parseInt(reader.readLine());
+		touchdowns = Integer.parseInt(reader.readLine());
+		fumbles = Integer.parseInt(reader.readLine());
 	}
 
 	@Override
