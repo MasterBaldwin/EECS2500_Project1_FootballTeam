@@ -19,7 +19,7 @@ public class TeamData {
 			System.out.println("Encountered an IO error: " + exception);
 		}
 
-		for (var i = 0; i < allStrings.size(); ) {
+		for (int i = 0; i < allStrings.size(); ) {
 			//Read the first line to determine what type of player
 			Player player;
 			switch (allStrings.get(i)) {
