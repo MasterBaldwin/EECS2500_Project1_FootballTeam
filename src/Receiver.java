@@ -61,11 +61,8 @@ public class Receiver extends Player {
 		this.fumbles = fumbles;
 	}
 
-	public Receiver() {
-		super("Receiver");
-	}
-
-	protected void LoadInternalData(BufferedReader reader) throws IOException {
+	public Receiver(BufferedReader reader) throws IOException {
+		super(reader);
 		setReceptions(Integer.parseInt(reader.readLine()));
 		setReceptionYards(Integer.parseInt(reader.readLine()));
 		setRushes(Integer.parseInt(reader.readLine()));

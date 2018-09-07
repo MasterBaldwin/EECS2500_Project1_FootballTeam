@@ -88,11 +88,8 @@ public class Quarterback extends Player {
 		this.sacks = sacks;
 	}
 
-	public Quarterback() {
-		super("Quarterback");
-	}
-
-	protected void LoadInternalData(BufferedReader reader) throws IOException {
+	public Quarterback(BufferedReader reader) throws IOException {
+		super(reader);
 		setPassAttempts(Integer.parseInt(reader.readLine()));
 		setPassCompletions(Integer.parseInt(reader.readLine()));
 		setPassingYards(Integer.parseInt(reader.readLine()));

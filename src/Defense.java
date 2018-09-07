@@ -34,11 +34,8 @@ public class Defense extends Player {
 		this.interceptions = interceptions;
 	}
 
-	public Defense() {
-		super("Defense");
-	}
-
-	protected void LoadInternalData(BufferedReader reader) throws IOException {
+	public Defense(BufferedReader reader) throws IOException {
+		super(reader);
 		setTackles(Integer.parseInt(reader.readLine()));
 		setSacks(Float.parseFloat(reader.readLine()));
 		setInterceptions(Integer.parseInt(reader.readLine()));

@@ -16,17 +16,19 @@ public class Team {
 	public static void main(String[] args) {
 		try (BufferedReader reader = Files.newBufferedReader(Paths.get(System.getProperty("user.dir") + "/playerinfo.txt"))) {
 			while (reader.ready()) {
+				reader.mark(15); //I think 15 characters is enough to account for the longest word "Quarterback", plus some
 				String position = reader.readLine();
+				reader.reset();
 				Player player;
 				switch (position) {
 					case "Quarterback":
-						player = new Quarterback();
+						player = new Quarterback(reader);
 						break;
 					case "Defense":
-						player = new Defense();
+						player = new Defense(reader);
 						break;
 					case "Receiver":
-						player = new Receiver();
+						player = new Receiver(reader);
 						break;
 					default:
 						System.out.println("Encountered unknown player position.");
@@ -36,7 +38,6 @@ public class Team {
 						printAllPlayers();
 						return;
 				}
-				player.LoadPlayerData(reader);
 				players.add(player);
 			}
 		} catch (FileNotFoundException exception) {
@@ -45,7 +46,7 @@ public class Team {
 			System.out.println("Encountered an IO error: " + exception);
 		}
 
-		System.out.println("The following is a printout of all correctly loaded players so far:");
+		System.out.println("The following is a printout of all loaded players:");
 		System.out.println();
 		printAllPlayers();
 	}

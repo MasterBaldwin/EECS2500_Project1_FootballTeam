@@ -43,18 +43,12 @@ public abstract class Player {
 		this.age = age;
 	}
 
-	protected Player(String position) {
-		setPosition(position);
-	}
-
-	public void LoadPlayerData(BufferedReader reader) throws IOException {
+	protected Player(BufferedReader reader) throws IOException {
+		setPosition(reader.readLine());
 		setName(reader.readLine());
 		setWeight(Float.parseFloat(reader.readLine()));
 		setAge(Integer.parseInt(reader.readLine()));
-		LoadInternalData(reader);
 	}
-
-	protected abstract void LoadInternalData(BufferedReader reader) throws IOException;
 
 	@Override
 	public String toString() {
