@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Team {
 	private static final String inputFilePath = System.getProperty("user.dir") + "/playerinfo.txt";
-	private static List<Player> players = new ArrayList<>();
+	private final static List<Player> players = new ArrayList<>();
 
 	/*
 	 * A few things:
